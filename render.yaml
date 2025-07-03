@@ -2,6 +2,8 @@ services:
   - type: web
     name: n8n
     env: node
+    plan: free
+    region: oregon
     repo: https://github.com/vivek09-bit/n8n
     branch: main
     buildCommand: pnpm install --frozen-lockfile && pnpm --filter=cli run build
@@ -13,3 +15,5 @@ services:
         value: 10000
       - key: DB_TYPE
         value: sqlite
+      - key: WEBHOOK_URL
+        value: https://n8n-1rzu.onrender.com
