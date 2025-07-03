@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: n8n
+    env: node
+    repo: https://github.com/vivek09-bit/n8n
+    branch: main
+    buildCommand: pnpm install --frozen-lockfile && pnpm --filter=cli run build
+    startCommand: pnpm --filter=cli start
+    envVars:
+      - key: TURBO_REPO_IS_CI
+        value: true
+      - key: N8N_PORT
+        value: 10000
+      - key: DB_TYPE
+        value: sqlite
